@@ -53,7 +53,8 @@ app.include_router(user.router)
 app.include_router(auth.router)
 app.include_router(vote.router)
 
-@app.get('/')
+@app.get('/') 
+# @app.get('/', status_code=status.HTTP_201_CREATED) # for testing 
 async def root():
     return {"message": "welcome to api"}
 
