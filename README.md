@@ -31,7 +31,7 @@ Ensure you have the following installed:
 
 **Clone the repository:**
 ```
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/tushar-3549/API-Development.git
 cd API-Development
 ```
 
