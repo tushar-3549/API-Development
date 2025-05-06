@@ -1,4 +1,4 @@
-# 📱 Social Media API
+#  Social Media API
 
 A high-performance Social Media API built using **FastAPI**, **PostgreSQL**, and **Alembic**. This project implements secure user authentication, robust database operations, and thorough testing to ensure a reliable and efficient system.
 
