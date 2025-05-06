@@ -1,48 +1,72 @@
-### Social Media API
-- A high-performance Social Media API built using FastAPI, PostgreSQL, and Alembic. This project implements user authentication, database operations, and testing to ensure a secure and efficient system.
+# 📱 Social Media API
 
-### Features
-- User Authentication (JWT-based login/logout using OAuth2)
-- CRUD Operations for posts and users
-- Password Hashing for secure authentication
-- Database Integration with PostgreSQL & SQLAlchemy ORM
-- Alembic Migrations for database schema management
-- SQL Injection Prevention using ORM best practices
-- Unit Testing with Pytest (Users, Database, Authentication, API endpoints)
-- Postman API Testing support
+A high-performance Social Media API built using **FastAPI**, **PostgreSQL**, and **Alembic**. This project implements secure user authentication, robust database operations, and thorough testing to ensure a reliable and efficient system.
 
-### Technologies Used
-- FastAPI - Modern web framework for APIs
-- PostgreSQL - Relational database management system
-- SQLAlchemy - ORM for database interaction
-- Alembic - Database migration tool
-- OAuth2 & JWT - Secure authentication
-- Github Actions
-- Pytest - Automated testing framework
+---
 
-### Installation
-***Prerequisites***
-Ensure you have the following installed:
+## 🚀 Features
+
+- 🔐 **User Authentication** (JWT-based login/logout using OAuth2)
+- 📝 **CRUD Operations** for posts and users
+- 🔑 **Password Hashing** for secure login credentials
+- 🗄️ **PostgreSQL Integration** using SQLAlchemy ORM
+- 🔄 **Alembic Migrations** for schema versioning
+- 🛡️ **SQL Injection Prevention** with ORM best practices
+- ✅ **Unit Testing** with Pytest (users, auth, DB, API endpoints)
+- 🧪 **Postman API Testing** support
+- ⚙️ **GitHub Actions** for CI/CD
+
+---
+
+## 🛠️ Technologies Used
+
+- **FastAPI** – Modern, high-performance web framework
+- **PostgreSQL** – Relational database
+- **SQLAlchemy** – ORM for interacting with the DB
+- **Alembic** – Database migrations
+- **OAuth2 & JWT** – Secure authentication
+- **Pytest** – Python testing framework
+- **GitHub Actions** – CI/CD automation
+
+---
+
+## 📦 Installation
+
+### ✅ Prerequisites
+
+Ensure the following are installed:
+
 - Python (3.10 or higher)
 - PostgreSQL
-- Virtual Environment (venv)
+- Virtual environment module (venv)
 
-### Steps
+### 🔧 Steps
 
-**Clone the repository:**
-```
-git clone https://github.com/tushar-3549/API-Development.git
-cd API-Development
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/tushar-3549/API-Development.git
+   cd API-Development
+   ```
+2. **Create and activate a virtual environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+3. **Install dependencies**
+   `pip install -r requirements.txt`
+4. **Set up your `.env` file**
+   ```
+   DATABASE_URL=postgresql://<username>:<password>@localhost/<dbname>
+   SECRET_KEY=your_secret_key
+   ALGORITHM=HS256
+   ACCESS_TOKEN_EXPIRE_MINUTES=30
+   ```
+5. **Apply Alembic migrations**
+   `alembic upgrade head`
+6. **Run the FastAPI server**
+   `uvicorn app.main:app --reload`
+- Visit the API at: `http://127.0.0.1:8000`
+- Docs: `http://127.0.0.1:8000/docs`
+- 🧪 **Running Tests**
+  ```pytest```
 
-###### Create and activate a virtual environment:
-```
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-```
-
-**Start the FastAPI server:**
-
-`uvicorn app.main:app --reload`
-
-- API will be available at: `http://127.0.0.1:8000`
