@@ -1,6 +1,6 @@
-#  Social Media API
+##  ShareThoughts API
 
-A high-performance Social Media API built using **FastAPI**, **PostgreSQL**, and **Alembic**. This project implements secure user authentication, robust database operations, and thorough testing to ensure a reliable and efficient system.
+A high-performance ShareThoughts API built using **FastAPI**, **PostgreSQL**, and **Alembic**. This project implements secure user authentication, robust database operations, and thorough testing to ensure a reliable and efficient system.
 
 ---
 
@@ -15,6 +15,7 @@ A high-performance Social Media API built using **FastAPI**, **PostgreSQL**, and
 - ✅ **Unit Testing** with Pytest (users, auth, DB, API endpoints)
 - 🧪 **Postman API Testing** support
 - ⚙️ **GitHub Actions** for CI/CD
+- 🐳 **Docker Support** for easy containerized deployment
 
 ---
 
@@ -68,5 +69,6 @@ Ensure the following are installed:
 - Visit the API at: `http://127.0.0.1:8000`
 - Docs: `http://127.0.0.1:8000/docs`
 - 🧪 **Running Tests**
+  
   ```pytest```
 
