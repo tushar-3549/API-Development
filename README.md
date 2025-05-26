@@ -72,3 +72,5 @@ Ensure the following are installed:
   
   ```pytest```
 
+**ER Diagram**
+![fastapi - public](https://github.com/user-attachments/assets/fd5483ed-7abf-4943-a931-e8c9e365b17b)
