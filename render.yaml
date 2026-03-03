@@ -1,0 +1,40 @@
+services:
+  # Web service for the FastAPI app
+  - type: web
+    name: share-thoughts
+    env: python
+    buildCommand: pip install -r requirements.txt && alembic upgrade head
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_HOSTNAME
+        fromDatabase:
+          name: social-media-db
+          property: host
+      - key: DATABASE_PORT
+        fromDatabase:
+          name: social-media-db
+          property: port
+      - key: DATABASE_USERNAME
+        fromDatabase:
+          name: social-media-db
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: social-media-db
+          property: password
+      - key: DATABASE_NAME
+        fromDatabase:
+          name: social-media-db
+          property: database
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: 30
+
+# Managed PostgreSQL database
+databases:
+  - name: social-media-db
+    databaseName: social_media
+    user: social_user

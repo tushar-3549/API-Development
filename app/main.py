@@ -9,7 +9,7 @@ from fastapi import FastAPI
 # import time
 from .database import engine
 from . import models
-from .routers import post, user, auth, vote
+from .routers import post, user, auth, vote, comment
 from .config import settings
 
 from fastapi.middleware.cors import CORSMiddleware
@@ -52,11 +52,24 @@ app.include_router(post.router)
 app.include_router(user.router)
 app.include_router(auth.router)
 app.include_router(vote.router)
+app.include_router(comment.router)
 
 @app.get('/') 
 # @app.get('/', status_code=status.HTTP_201_CREATED) # for testing 
 async def root():
     return {"message": "welcome to api"}
+
+@app.get('/health')
+async def health_check():
+    try:
+        # Check database connectivity
+        from .database import engine
+        from sqlalchemy import text
+        with engine.connect() as connection:
+            connection.execute(text("SELECT 1"))
+        return {"status": "healthy", "database": "connected"}
+    except Exception as e:
+        return {"status": "unhealthy", "database": "disconnected", "error": str(e)}, 503
 
 # @app.get("/sqlalchemy")
 # def test_posts(db: Session = Depends(get_db)):

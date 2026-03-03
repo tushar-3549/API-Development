@@ -43,7 +43,12 @@ class UserLogin(BaseModel):
 # Token schema for authentication
 class Token(BaseModel):
     access_token: str
+    refresh_token: str
     token_type: str
+
+# Token refresh request schema
+class TokenRefresh(BaseModel):
+    refresh_token: str
 
 # Token data that includes user ID
 class TokenData(BaseModel):
@@ -54,10 +59,34 @@ class Vote(BaseModel):
     post_id: int
     dir: conint(le=1)
 
+# Vote toggle schema (only needs post_id)
+class VoteToggle(BaseModel):
+    post_id: int
+
+# Vote count response schema
+class VoteCount(BaseModel):
+    post_id: int
+    count: int
+
 # Output schema for posts with votes
 class PostOut(BaseModel):
     Post: Post
     votes: int
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CommentBase(BaseModel):
+    content: str
+
+class CommentCreate(CommentBase):
+    pass
+
+class Comment(CommentBase):
+    id: int
+    created_at: datetime
+    post_id: int
+    user_id: int
+    user: UserOut
 
     model_config = ConfigDict(from_attributes=True)
 
